@@ -1,0 +1,12 @@
+{
+  "name": "pairpipe",
+  "owner": { "name": "pairpipe" },
+  "description": "pairpipe: let your Claude Code talk to your friend's. Independent product, not affiliated with Anthropic.",
+  "plugins": [
+    {
+      "name": "pairpipe",
+      "source": "./plugins/pairpipe",
+      "description": "Messages, files and a shared task board between your Claude Code and a friend's, through a private pair."
+    }
+  ]
+}

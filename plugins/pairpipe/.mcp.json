@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pairpipe": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+      "args": ["mcp"]
+    }
+  }
+}

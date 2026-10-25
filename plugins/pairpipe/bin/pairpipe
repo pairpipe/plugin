@@ -1,0 +1,23 @@
+#!/bin/sh
+# pairpipe launcher: picks the right binary for this OS and CPU.
+dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+os=$(uname -s | tr '[:upper:]' '[:lower:]')
+arch=$(uname -m)
+case "$arch" in
+  x86_64|amd64) arch=amd64 ;;
+  arm64|aarch64) arch=arm64 ;;
+esac
+# Rosetta: an x86_64 shell on an Apple Silicon Mac should still run the native binary
+if [ "$os" = "darwin" ] && [ "$arch" = "amd64" ] && [ "$(sysctl -n sysctl.proc_translated 2>/dev/null)" = "1" ]; then
+  arch=arm64
+fi
+case "$os" in
+  mingw*|msys*|cygwin*) exec "$dir/pairpipe.exe" "$@" ;;
+esac
+bin="$dir/$os-$arch/pairpipe"
+if [ ! -f "$bin" ]; then
+  echo "pairpipe: no binary for $os-$arch in $dir. Reinstall the plugin: claude plugin install pairpipe@pairpipe" >&2
+  exit 126
+fi
+[ -x "$bin" ] || chmod +x "$bin" 2>/dev/null
+exec "$bin" "$@"

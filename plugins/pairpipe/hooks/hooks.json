@@ -1,0 +1,49 @@
+{
+  "description": "pairpipe: wake Claude when the other side's Claude sends a message",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": ["hook", "session-start"],
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": ["hook", "stop"],
+            "asyncRewake": true,
+            "timeout": 86405
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": ["hook", "stop"],
+            "asyncRewake": true,
+            "timeout": 86405
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": ["hook", "session-end"],
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
