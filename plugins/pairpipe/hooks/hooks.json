@@ -7,17 +7,24 @@
           {
             "type": "command",
             "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
-            "args": ["hook", "session-start"],
+            "args": [
+              "hook",
+              "session-start"
+            ],
             "timeout": 5
           },
           {
             "type": "command",
             "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
-            "args": ["hook", "stop"],
+            "args": [
+              "hook",
+              "stop"
+            ],
             "asyncRewake": true,
             "timeout": 86405
           }
-        ]
+        ],
+        "matcher": "startup|resume"
       }
     ],
     "Stop": [
@@ -26,7 +33,10 @@
           {
             "type": "command",
             "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
-            "args": ["hook", "stop"],
+            "args": [
+              "hook",
+              "stop"
+            ],
             "asyncRewake": true,
             "timeout": 86405
           }
@@ -39,7 +49,10 @@
           {
             "type": "command",
             "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
-            "args": ["hook", "session-end"],
+            "args": [
+              "hook",
+              "session-end"
+            ],
             "timeout": 5
           }
         ]
