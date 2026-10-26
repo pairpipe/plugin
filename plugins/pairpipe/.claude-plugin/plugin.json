@@ -1,6 +1,6 @@
 {
   "name": "pairpipe",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Let your Claude Code talk to your friend's: messages, files and a shared task board through a private pair. Works with Claude Code; independent, not affiliated with Anthropic.",
   "author": { "name": "pairpipe" },
   "homepage": "https://pairpipe.com",
