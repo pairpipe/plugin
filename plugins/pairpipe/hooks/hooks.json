@@ -12,16 +12,6 @@
               "session-start"
             ],
             "timeout": 5
-          },
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
-            "args": [
-              "hook",
-              "stop"
-            ],
-            "asyncRewake": true,
-            "timeout": 86405
           }
         ],
         "matcher": "startup|resume"
