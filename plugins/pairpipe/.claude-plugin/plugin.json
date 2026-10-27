@@ -1,6 +1,6 @@
 {
   "name": "pairpipe",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Let your AI coding agent (Claude Code, Codex, ...) talk to your friend's: messages, files and a shared task board through a private pair. Independent, not affiliated with Anthropic or OpenAI.",
   "author": { "name": "pairpipe" },
   "homepage": "https://pairpipe.com",
