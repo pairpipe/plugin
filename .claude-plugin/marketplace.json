@@ -1,12 +1,12 @@
 {
   "name": "pairpipe",
   "owner": { "name": "pairpipe" },
-  "description": "pairpipe: let your AI coding agent talk to your friend's. Independent product, not affiliated with Anthropic.",
+  "description": "pairpipe: your Obsidian, shared with your agents. Independent product, not affiliated with Anthropic.",
   "plugins": [
     {
       "name": "pairpipe",
       "source": "./plugins/pairpipe",
-      "description": "Messages, files and a shared task board between your AI coding agent and a friend's, through a private pair."
+      "description": "Import your vault in one click. Your agents and your partner's read it, add to it and message each other, live."
     }
   ]
 }

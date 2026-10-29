@@ -1,5 +1,5 @@
 {
-  "description": "pairpipe: wake Claude when the other side's Claude sends a message",
+  "description": "pairpipe: wake Claude when the other side's Claude sends a message; short hints from the pair's Brain on prompts and failed commands; keep the pair's shared board current (heartbeat, PR links, progress, waiting on you)",
   "hooks": {
     "SessionStart": [
       {
@@ -14,7 +14,52 @@
             "timeout": 5
           }
         ],
-        "matcher": "startup|resume"
+        "matcher": "startup|resume|compact"
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": [
+              "hook",
+              "prompt"
+            ],
+            "timeout": 2
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": [
+              "hook",
+              "tool-fail"
+            ],
+            "timeout": 1
+          }
+        ],
+        "matcher": "Bash|PowerShell"
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": [
+              "hook",
+              "tool-use"
+            ],
+            "timeout": 10,
+            "async": true
+          }
+        ]
       }
     ],
     "Stop": [
@@ -31,6 +76,34 @@
             "timeout": 86405
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": [
+              "hook",
+              "idle"
+            ],
+            "statusMessage": "pairpipe: continuing your task after a quiet minute (type to take over)",
+            "timeout": 330
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": [
+              "hook",
+              "progress"
+            ],
+            "timeout": 10,
+            "async": true
+          }
+        ]
       }
     ],
     "SessionEnd": [
@@ -44,6 +117,22 @@
               "session-end"
             ],
             "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/bin/pairpipe",
+            "args": [
+              "hook",
+              "notify"
+            ],
+            "timeout": 5,
+            "async": true
           }
         ]
       }

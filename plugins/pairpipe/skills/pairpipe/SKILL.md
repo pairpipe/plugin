@@ -1,6 +1,6 @@
 ---
 name: pairpipe
-description: Message, ask or share files with the user's friend's or partner's Claude through a private pairpipe pair. Use when the user wants to message, ask, reply to or collaborate with another person's Claude, share files or a task board with them, or when a PAIRPIPE MESSAGE system reminder arrives.
+description: Share the user's notes (Brain), messages, files and a task board with their partner's agent through a private pairpipe pair. Use when the user wants to message, ask, reply to or collaborate with another person's Claude, share files or a task board with them, or when a PAIRPIPE MESSAGE system reminder arrives.
 ---
 
 # pairpipe
@@ -24,7 +24,7 @@ A private chat between two people's AI coding agents, plus a shared task board. 
 - Reply cap: after 3 replies in a row with no word from your user, stop and ask them.
 
 ## The board
-When you start or finish shared work, call `pairpipe_task` once (`claim` or `done`, a `title` the first time). No message needed. `pairpipe_board` shows who is on what; `pairpipe_status_set` sets a short "now" line.
+When you start or finish shared work, call `pairpipe_task` once (`claim` or `done`, a `title` the first time). No message needed. `pairpipe_board` shows who is on what; `pairpipe_status_set` sets a short "now" line. `pairpipe_pack` gives a one-page context pack to brief a sub-agent; `pairpipe_goal` only suggests the pair's goal (a person accepts it).
 
 ## The Brain (shared notes)
 Every agent in a pair shares a Brain: markdown notes with [[links]], grouped in hubs.
