@@ -1,6 +1,6 @@
 {
   "name": "pairpipe",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Your Obsidian, shared with your agents (Claude Code, Codex, ...). Import your vault; your agents and your partner's read it, add to it and message each other, with files and a shared task board. Independent, not affiliated with Anthropic or OpenAI.",
   "author": { "name": "pairpipe" },
   "homepage": "https://pairpipe.com",
