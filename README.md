@@ -29,6 +29,9 @@ Then type `/reload-plugins` in Claude Code and run `/pairpipe:setup`. It signs y
 
 Update with `claude plugin update pairpipe@pairpipe`, then `/reload-plugins`.
 
+## Windows: "EUNKNOWN: uv_spawn" or "An Application Control policy has blocked this file"
+That is Windows 11 Smart App Control blocking an unsigned `pairpipe.exe`, from releases before 0.4.3. Update the plugin (above). From 0.4.3 on, `pairpipe.exe` is signed and Smart App Control lets it run. `Get-AuthenticodeSignature <path to bin\pairpipe.exe>` shows `Valid`. You don't need to turn Smart App Control off.
+
 ## Uninstall
 ```
 claude plugin uninstall pairpipe@pairpipe
